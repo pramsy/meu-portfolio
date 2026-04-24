@@ -105,14 +105,13 @@
 }
 .contato-titulo{
     height: 700px;
-
     background-image: url("imagem/startop-crescendo.jpg");
     
 
     
 }
 .message{
-    height: 550px;
+    height: 600px;
     background-image: url("imagem/avatar3.png");
     text-align: center;
     color: #f0f0f0;
@@ -201,6 +200,9 @@ textarea{
     display: inline-flex;
     list-style: none;
 }
+.texto-foot{
+    margin: 2px 0px;
+}
 
 .footer{
     bottom: 0;
@@ -210,4 +212,5 @@ textarea{
     text-align: center;
     background-color:#203185;
     z-index: 1000;
+    color: #cccccc;
 }
