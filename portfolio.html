@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meu site Pessoal</title>
+    <title>Portfólio | Ramses Pierre</title>
+    <meta name="description" content="Projetos já realizados e exemplos de trabalho de Ramses Pierre.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,55 +12,36 @@
         <nav class="navbar">
             <a class="logo" href="index.html">Ramses Pierre</a>
             <ul class="nav-menu">
-                <li class="nav-item"> <a class="nav-link" href="curriculo.html">Curriculo</a></li>
-                <li class="nav-item"><a class="nav-link" href="portfolio.html"> Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="curriculo.html">Currículo</a></li>
+                <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfólio</a></li>
                 <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
-               
             </ul>
         </nav>
     </header>
-    <div class="portfolio">
-        <p >
-            <div class="titulo"> PORTFOLIO</div>
-            <h4 class="titulo-2">Atividade ja realizada</h4>
-            Criação de uma pagina de <strong>agenda online </strong>onde cada lider 
-            realise o cadastro da sua atividade para validação 
-            futura pela comissão de planejamento 
-            <br>
-            Esse sistema facilita a gestão das programações evitando 
-            conflito da datas nas programações. 
-            <br>
-            Foi progetado para facilitar o trabalho de todos sem nenhum custo
-            de hospedagem, de manutação. Com um fluxo de acesso baixo, consigo
-            usar ferramentas como firestor para guardar os dados, github 
-            como ferramente de hospedar o codigo fonte e vue.js para desenvolver
-            a parte front-end. 
-            <br>
-            Temos implementação de pagina de cadastro de lider
-            pagina de login, pagina de cadastro de evento. <br>
-            Não precisa de cadastro para visualizar os eventos ja aprovado.
-           
-            
-        
-            <br>
-            <a href="https://agenda-8eb23.web.app/">
-
-            <picture class="img-portfolio1">
-                
-                <source media="(min-width: 768px)" srcset="imagem/inicio.png">
-                
-                <img src="imagem/inicio-menor.png" alt="Uma foto adaptada para diferentes dispositivos" style="width: 100%;">
-            </picture>
-            
-            </a>
-        </p>
-    </div>
-
+    <main>
+        <section class="section">
+            <h1 class="section-title">Portfólio</h1>
+            <div class="content-card">
+                <h2>Atividade já realizada</h2>
+                <p>Criação de uma página de <strong>agenda online</strong> onde cada líder realiza o cadastro da sua atividade para validação futura pela comissão de planejamento.</p>
+                <p>Esse sistema facilita a gestão das programações evitando conflito de datas nas programações.</p>
+                <p>Foi projetado para facilitar o trabalho de todos sem nenhum custo de hospedagem ou manutenção. Com um fluxo de acesso baixo, consigo usar ferramentas como Firestore para guardar os dados, GitHub para hospedar o código fonte e Vue.js para desenvolver a parte front-end.</p>
+                <p>Temos implementação de página de cadastro de líder, página de login e página de cadastro de evento. Não precisa de cadastro para visualizar os eventos já aprovados.</p>
+                <a class="btn btn-secondary" href="https://agenda-8eb23.web.app/" target="_blank" rel="noopener noreferrer">Acessar o projeto</a>
+                <a href="https://agenda-8eb23.web.app/" target="_blank" rel="noopener noreferrer" class="project-image-link">
+                    <picture class="project-image">
+                        <source media="(min-width: 768px)" srcset="imagem/inicio.png">
+                        <img src="imagem/inicio-menor.png" alt="Visualização do projeto agenda online para diferentes dispositivos">
+                    </picture>
+                </a>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
-         <div class="text-foot">
-        &copy; 2026 Ramses Pierre. Todos os direitos reservados.
-        </div>          
+        <div class="footer-inner">
+            <p>&copy; 2026 Ramses Pierre. Todos os direitos reservados.</p>
+        </div>
     </footer>
-    
 </body>
 </html>
