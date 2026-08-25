@@ -105,7 +105,11 @@ main {
     color: var(--primary-dark);
     margin-bottom: 18px;
 }
-
+.mensagem-title{
+    
+    color: var(--bg);
+    
+}
 .eyebrow {
     color: var(--secondary);
     text-transform: uppercase;

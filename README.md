@@ -62,6 +62,7 @@ O site exibe:
 - estilo visual mais coeso e moderno
 - formulário com labels e campos alinhados
 - página de agradecimento com botão para voltar ao site
+- Envio do Formulario por e-mail via API web3form
 
 ## Melhorias futuras
 
