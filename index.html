@@ -67,5 +67,56 @@
             <p>&copy; 2026 Ramses Pierre. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Assistente IA -->
+    <button id="ai-assistant-button" class="ai-assistant-button" aria-label="Abrir assistente de IA">
+        🤖
+    </button>
+
+    <div id="ai-chat" class="ai-chat" aria-hidden="true">
+
+        <div class="ai-chat-header">
+            <div>
+                <strong>Assistente do Portfólio</strong>
+                <small>Ramses Pierre</small>
+            </div>
+
+            <button id="ai-chat-close" class="ai-chat-close" aria-label="Fechar">
+                ×
+            </button>
+        </div>
+
+        <div id="ai-chat-messages" class="ai-chat-messages">
+
+            <div class="ai-message ai-message-bot">
+                Olá! 👋<br><br>
+                Sou o assistente virtual do portfólio do Ramses.
+                Posso responder perguntas sobre sua experiência,
+                tecnologias, projetos e formas de contato.
+            </div>
+
+        </div>
+
+        <form id="ai-chat-form" class="ai-chat-form">
+
+            <input
+                type="text"
+                id="ai-chat-input"
+                placeholder="Digite sua pergunta..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit" aria-label="Enviar">
+                ➤
+            </button>
+
+        </form>
+
+    </div>
+
+<script src="script.js"></script>
 </body>
+
 </html>
+
