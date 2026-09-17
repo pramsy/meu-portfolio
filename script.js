@@ -70,68 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================================
    ASSISTENTE DE IA
 ========================================= */
-
-const aiButton = document.getElementById("ai-assistant-button");
-const aiChat = document.getElementById("ai-chat");
-const aiClose = document.getElementById("ai-chat-close");
-const aiForm = document.getElementById("ai-chat-form");
-const aiInput = document.getElementById("ai-chat-input");
-const aiMessages = document.getElementById("ai-chat-messages");
-
-
-/* Abrir */
-
-if (aiButton) {
-
-    aiButton.addEventListener("click", () => {
-
-        aiChat.classList.add("open");
-
-        aiChat.setAttribute("aria-hidden", "false");
-
-        aiInput.focus();
-
-    });
-
-}
-
-
-/* Fechar */
-
-if (aiClose) {
-
-    aiClose.addEventListener("click", () => {
-
-        aiChat.classList.remove("open");
-
-        aiChat.setAttribute("aria-hidden", "true");
-
-    });
-
-}
-
-
-/* Adicionar mensagem */
-
-function adicionarMensagem(texto, tipo) {
-
-    const mensagem = document.createElement("div");
-
-    mensagem.classList.add(
-        "ai-message",
-        tipo === "user"
-            ? "ai-message-user"
-            : "ai-message-bot"
-    );
-
-    mensagem.textContent = texto;
-
-    aiMessages.appendChild(mensagem);
-
-    aiMessages.scrollTop = aiMessages.scrollHeight;
-}
-
-
 /* Enviar pergunta */
 
 if (aiForm) {
@@ -146,20 +84,62 @@ if (aiForm) {
             return;
         }
 
+        // Mostrar pergunta do usuário
         adicionarMensagem(pergunta, "user");
 
+        // Limpar campo
         aiInput.value = "";
 
+        // Mostrar mensagem temporária
         adicionarMensagem(
             "Estou pensando... 🤔",
             "bot"
         );
 
-        /*
-         * IMPORTANTE:
-         * Aqui futuramente vamos chamar
-         * o nosso backend de IA.
-         */
+        try {
+
+            // Enviar pergunta para o backend
+            const resposta = await fetch(
+                "https://meu-portfolio-api-blush.vercel.app/api/chat",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: pergunta
+                    })
+                }
+            );
+
+            // Converter resposta para JSON
+            const dados = await resposta.json();
+
+            // Verificar se o backend retornou erro
+            if (!resposta.ok) {
+                throw new Error(
+                    dados.error || "Erro ao consultar o assistente."
+                );
+            }
+
+            // Mostrar resposta da IA
+            adicionarMensagem(
+                dados.response,
+                "bot"
+            );
+
+        } catch (erro) {
+
+            console.error("Erro ao conectar com o assistente:", erro);
+
+            adicionarMensagem(
+                "Desculpe, não consegui responder agora. Tente novamente em alguns instantes.",
+                "bot"
+            );
+
+        }
 
     });
 
