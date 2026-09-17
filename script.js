@@ -70,6 +70,67 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================================
    ASSISTENTE DE IA
 ========================================= */
+
+const aiButton = document.getElementById("ai-assistant-button");
+const aiChat = document.getElementById("ai-chat");
+const aiClose = document.getElementById("ai-chat-close");
+const aiForm = document.getElementById("ai-chat-form");
+const aiInput = document.getElementById("ai-chat-input");
+const aiMessages = document.getElementById("ai-chat-messages");
+
+
+/* Abrir */
+
+if (aiButton) {
+
+    aiButton.addEventListener("click", () => {
+
+        aiChat.classList.add("open");
+
+        aiChat.setAttribute("aria-hidden", "false");
+
+        aiInput.focus();
+
+    });
+
+}
+
+
+/* Fechar */
+
+if (aiClose) {
+
+    aiClose.addEventListener("click", () => {
+
+        aiChat.classList.remove("open");
+
+        aiChat.setAttribute("aria-hidden", "true");
+
+    });
+
+}
+
+
+/* Adicionar mensagem */
+
+function adicionarMensagem(texto, tipo) {
+
+    const mensagem = document.createElement("div");
+
+    mensagem.classList.add(
+        "ai-message",
+        tipo === "user"
+            ? "ai-message-user"
+            : "ai-message-bot"
+    );
+
+    mensagem.textContent = texto;
+
+    aiMessages.appendChild(mensagem);
+
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+}
+
 /* Enviar pergunta */
 
 if (aiForm) {
