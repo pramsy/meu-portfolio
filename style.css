@@ -202,6 +202,10 @@ main {
 .container-cv {
     padding: 28px;
 }
+.content-card{
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
 
 .content-card p,
 .content-card h2,
@@ -391,6 +395,7 @@ textarea {
     .form-contato,
     .footer-inner {
         padding: 24px;
+        
     }
 }
 
