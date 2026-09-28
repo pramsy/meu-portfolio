@@ -153,8 +153,7 @@ if (aiForm) {
 
         // Mostrar mensagem temporária
         adicionarMensagem(
-            "Estou pensando... 🤔",
-            "bot"
+            
         );
 
         try {
