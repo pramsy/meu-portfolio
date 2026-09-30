@@ -213,7 +213,7 @@ Página de confirmação
 2. Clique em **Code**.
 3. Selecione **Download ZIP**.
 4. Extraia o arquivo.
-5. Abra `index.html` no navegador.
+5. Execute o projeto com um servidor local, por exemplo a extensão **Live Server** do Visual Studio Code.
 
 ### Opção 2 — Clonar o repositório
 
@@ -227,13 +227,7 @@ Entre na pasta:
 cd meu-portfolio
 ```
 
-Depois, abra o arquivo:
-
-```text
-index.html
-```
-
-no navegador.
+Depois, inicie um servidor local na pasta do projeto e acesse `index.html` pelo endereço HTTP fornecido pelo servidor. Os componentes compartilhados do menu e rodapé são carregados por `fetch` e não funcionam ao abrir o arquivo diretamente via `file://`.
 
 Também é possível utilizar uma extensão como **Live Server** no Visual Studio Code para executar o projeto durante o desenvolvimento.
 

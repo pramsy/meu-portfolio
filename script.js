@@ -1,3 +1,67 @@
+async function carregarComponentes() {
+    const inclusoes = Array.from(document.querySelectorAll('[data-component]'));
+
+    await Promise.all(inclusoes.map(async (inclusao) => {
+        const nome = inclusao.dataset.component === 'menu' ? 'menue' : 'footer';
+
+        try {
+            const resposta = await fetch(`components/${nome}.html`);
+            if (!resposta.ok) {
+                throw new Error(`Falha ao carregar ${nome}: ${resposta.status}`);
+            }
+
+            inclusao.outerHTML = await resposta.text();
+        } catch (erro) {
+            console.error(erro);
+        }
+    }));
+
+    const paginaAtual = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach((link) => {
+        if (link.getAttribute('href') === paginaAtual) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+
+    const botaoMenu = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-menu');
+
+    if (botaoMenu && menu) {
+        const fecharMenu = () => {
+            botaoMenu.setAttribute('aria-expanded', 'false');
+            botaoMenu.setAttribute('aria-label', 'Abrir menu de navegação');
+            menu.classList.remove('is-open');
+        };
+
+        botaoMenu.addEventListener('click', () => {
+            const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
+            botaoMenu.setAttribute('aria-expanded', String(!aberto));
+            botaoMenu.setAttribute('aria-label', aberto ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
+            menu.classList.toggle('is-open', !aberto);
+        });
+
+        menu.addEventListener('click', (evento) => {
+            if (evento.target.closest('a')) {
+                fecharMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (evento) => {
+            if (evento.key === 'Escape' && botaoMenu.getAttribute('aria-expanded') === 'true') {
+                fecharMenu();
+                botaoMenu.focus();
+            }
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', carregarComponentes);
+} else {
+    carregarComponentes();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     
     const form = document.getElementById('form');
